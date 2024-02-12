@@ -22,35 +22,57 @@
                     </ListView>
                     <Grid Grid.Column="1"/>
                     <Canvas  x:Name="studentDetails" Grid.Column="1">
-                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="112" Canvas.Top="39"><Run Text="Student Deetails"/><LineBreak/><Run/></TextBlock>
-                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,109,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="studentDetailsID" Grid.Column="1" HorizontalAlignment="Left" Margin="199,112,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="First Name"/><LineBreak/><Run/></TextBlock>
-                        <TextBlock x:Name="studentDetailsFN" Grid.Column="1" HorizontalAlignment="Left" Margin="199,169,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"/>
-                        <TextBlock x:Name="studentDetailsLN" Grid.Column="1" HorizontalAlignment="Left" Margin="199,227,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"/>
-                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625" Text="Last Name"/>
-                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,283,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"/>
-                        <TextBlock x:Name="studentDetailsIdEM" Grid.Column="1" HorizontalAlignment="Left" Margin="199,280,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="112" Canvas.Top="39" Text="Student Details"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" RenderTransformOrigin="1.496,5.536" Canvas.Left="99" Canvas.Top="195"/>
+                        <TextBlock x:Name="studentDetailsID" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Canvas.Left="213" Canvas.Top="195"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625" Canvas.Left="79" Canvas.Top="221"><Run Text="First Name"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock x:Name="studentDetailsFN" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625" Canvas.Left="213" Canvas.Top="229"/>
+                        <TextBlock x:Name="studentDetailsLN" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625" Canvas.Left="213" Canvas.Top="253"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625" Text="Last Name" Canvas.Left="79" Canvas.Top="253"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625" Canvas.Left="86" Canvas.Top="277"/>
+                        <TextBlock x:Name="studentDetailsEM" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625" Canvas.Left="213" Canvas.Top="280"/>
+                        <TextBlock TextWrapping="Wrap" RenderTransformOrigin="0.483,5.625" Canvas.Left="91" Canvas.Top="338" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Text="Status"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock x:Name="studentDetailsST" TextWrapping="Wrap" Text="TextBlock" RenderTransformOrigin="0.483,5.625" Canvas.Left="213" Canvas.Top="338" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <TextBlock TextWrapping="Wrap" RenderTransformOrigin="0.483,5.625" Canvas.Left="84" Canvas.Top="310" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Text="Gender"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock x:Name="studentDetailsGE" TextWrapping="Wrap" Text="TextBlock" RenderTransformOrigin="0.483,5.625" Canvas.Left="213" Canvas.Top="310" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <Button Content="Edit&#xD;&#xA;" Canvas.Left="158" Canvas.Top="360" HorizontalAlignment="Center" VerticalAlignment="Top" Width="48" Height="22" Click="Edit_Student"/>
+                        <Image Height="100" Canvas.Left="120" Canvas.Top="77" Width="100" Source="/profile.png"/>
                     </Canvas>
                 </Grid>
             </TabItem>
             <TabItem Header="Add Student">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="47*"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="67*"/>
+                        <ColumnDefinition Width="660*"/>
                     </Grid.ColumnDefinitions>
-                    <Canvas Grid.Column="0">
+                    <Canvas Grid.Column="0" Grid.ColumnSpan="5">
                         <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="112" Canvas.Top="39"><Run Text="Student Details"/><LineBreak/><Run/></TextBlock>
                         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Student ID"/><LineBreak/><Run/></TextBlock>
                         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="First Name"/><LineBreak/><Run/></TextBlock>
                         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="Last Name"/><LineBreak/><Run/></TextBlock>
                         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="Email"/><LineBreak/><Run/></TextBlock>
                     </Canvas>
-                    <Button Content="Submit" HorizontalAlignment="Left" Margin="167,343,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-                    <TextBox x:Name="TextBoxID" HorizontalAlignment="Left" Margin="209,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="TextBoxFN" HorizontalAlignment="Left" Margin="209,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="TextBoxLN" HorizontalAlignment="Left" Margin="209,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="TextBoxEM" HorizontalAlignment="Left" Margin="209,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Submit" HorizontalAlignment="Left" Margin="33,343,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.Column="4"/>
+                    <TextBox x:Name="TextBoxID" HorizontalAlignment="Left" Margin="75,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
+                    <TextBox x:Name="TextBoxFN" HorizontalAlignment="Left" Margin="75,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
+                    <TextBox x:Name="TextBoxLN" HorizontalAlignment="Left" Margin="75,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
+                    <TextBox x:Name="TextBoxEM" HorizontalAlignment="Left" Margin="75,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
+                    <Image x:Name="profilePhoto" HorizontalAlignment="Left" Height="100" Margin="277,100,0,0" VerticalAlignment="Top" Width="100" Source="/profile.png" Grid.Column="4"/>
+                    <Label Content="Profile Photo" HorizontalAlignment="Left" Margin="282,74,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <Label Content="Gender&#xD;&#xA;" HorizontalAlignment="Left" Margin="239,225,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <Label Content="Status&#xD;&#xA;" HorizontalAlignment="Left" Margin="249,278,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <RadioButton x:Name="gender_Male" Content="Male" HorizontalAlignment="Center" Margin="0,231,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <RadioButton x:Name="gender_Female" Content="Female" HorizontalAlignment="Left" Margin="373,231,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <RadioButton x:Name="gender_Undeclared" Content="Undeclared" HorizontalAlignment="Left" Margin="452,232,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <ComboBox x:Name="studentStatus" HorizontalAlignment="Left" Margin="330,283,0,0" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
+                    <Image x:Name="f1" HorizontalAlignment="Left" Height="59" Margin="430,74,0,0" VerticalAlignment="Top" Width="54" Source="/basketball4.png" MouseDown="onImageClick" Grid.Column="4"/>
+                    <Image x:Name="f2" HorizontalAlignment="Left" Height="59" Margin="492,74,0,0" VerticalAlignment="Top" Width="54" Source="/basketball5.png"  MouseDown="onImageClick" Grid.Column="4"/>
+                    <Image x:Name="f3" HorizontalAlignment="Left" Height="59" Margin="559,75,0,0" VerticalAlignment="Top" Width="54" Source="/basketball6.png" MouseDown="onImageClick" Grid.Column="4"/>
+                    <Button Content="Reset" HorizontalAlignment="Left" Margin="384,192,0,0" VerticalAlignment="Top" Click="Button_Reset_Clicked" Grid.Column="4"/>
 
 
 

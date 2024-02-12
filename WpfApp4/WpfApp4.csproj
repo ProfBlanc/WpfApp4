@@ -8,4 +8,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="basketball4.png" />
+    <None Remove="basketball5.png" />
+    <None Remove="basketball6.png" />
+    <None Remove="profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="basketball4.png" />
+    <Resource Include="basketball5.png" />
+    <Resource Include="basketball6.png" />
+    <Resource Include="profile.png" />
+  </ItemGroup>
+
 </Project>
