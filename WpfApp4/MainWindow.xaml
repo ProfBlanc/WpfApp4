@@ -1,0 +1,62 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl x:Name="tabs">
+            <TabItem Header="View Students" Margin="-2,-4,-2,2">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView x:Name="listing" Grid.Column="0" SelectionChanged="listing_SelectionChanged" >
+                        <ListView.View>
+                            <GridView x:Name="listingGrid">
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Grid Grid.Column="1"/>
+                    <Canvas  x:Name="studentDetails" Grid.Column="1">
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="112" Canvas.Top="39"><Run Text="Student Deetails"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,109,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="studentDetailsID" Grid.Column="1" HorizontalAlignment="Left" Margin="199,112,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="First Name"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock x:Name="studentDetailsFN" Grid.Column="1" HorizontalAlignment="Left" Margin="199,169,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"/>
+                        <TextBlock x:Name="studentDetailsLN" Grid.Column="1" HorizontalAlignment="Left" Margin="199,227,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625" Text="Last Name"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,283,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"/>
+                        <TextBlock x:Name="studentDetailsIdEM" Grid.Column="1" HorizontalAlignment="Left" Margin="199,280,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Add Student">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Canvas Grid.Column="0">
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="112" Canvas.Top="39"><Run Text="Student Details"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Student ID"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="First Name"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="Last Name"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="Email"/><LineBreak/><Run/></TextBlock>
+                    </Canvas>
+                    <Button Content="Submit" HorizontalAlignment="Left" Margin="167,343,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+                    <TextBox x:Name="TextBoxID" HorizontalAlignment="Left" Margin="209,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="TextBoxFN" HorizontalAlignment="Left" Margin="209,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="TextBoxLN" HorizontalAlignment="Left" Margin="209,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="TextBoxEM" HorizontalAlignment="Left" Margin="209,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
