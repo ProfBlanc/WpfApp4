@@ -1,9 +1,12 @@
-﻿using System.Text;
+﻿using System.Drawing;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -19,15 +22,43 @@ namespace WpfApp4
 		List<Student> students;
 
 		ImageSource defaultProfilePhoto;
+		List<ImageSource> imageSources;
+		int selectedStudentIdIndex = -1;
 
+
+		private ImageSource mapStringToImageSource(String file) {
+            foreach (ImageSource item in imageSources) {
+                
+				if (item.ToString().Contains(file)) {  //@application/package....filename.ext
+					return item;
+				}
+			}
+
+			return null;
+		}
 		public MainWindow()
 		{
 			InitializeComponent();
 
 			defaultProfilePhoto = profilePhoto.Source;
+			imageSources = new List<ImageSource>() { f1.Source, f2.Source,
+			f3.Source, f4.Source, f5.Source, f6.Source };
 
 			studentDetails.Visibility = Visibility.Hidden;
 			studentDetails.Background =  Brushes.Beige;
+
+			string str = "<DataTemplate xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"><Grid><Image Height=\"50\" Width=\"50\" Source=\"{Binding Photo}\" /></Grid></DataTemplate>";
+			DataTemplate template = new DataTemplate();
+			template = XamlReader.Parse(str) as DataTemplate;
+
+
+			listingGrid.Columns.Add(
+			new GridViewColumn
+			{
+				Header = "Photo",
+				CellTemplate = template
+			}
+			);
 
 			listingGrid.Columns.Add(
 				new GridViewColumn
@@ -67,37 +98,43 @@ namespace WpfApp4
 				new GridViewColumn
 				{
 					Header = "Status",
-					DisplayMemberBinding = new Binding("Status")
+					DisplayMemberBinding = new Binding("Status"),
 				}
 				);
-
 
 			students = new List<Student>() { 
 			new Student(123, "John", "Smith", "john@smith.com", "Male", "Full-Time", "basketball1.png"),
 			new Student(456, "Mary", "Brown", "mary@brown.com", "Female", "Full-Time", "basketball2.png"),
 			new Student(789, "Liz", "Bot", "liz@bot.com", "Female", "Part-Time", "basketball3.png"),
-			new Student(234, "Frank", "Paul", "frank@paul.com", "Male", "Part-Time", "basketball2.png"),
+			new Student(234, "Frank", "Paul", "frank@paul.com", "Male", "Part-Time", "basketball4.png"),
+			new Student(579, "Beth", "Ann", "beth@anne.com", "Female", "Full-Time", "basketball5.png"),
+			new Student(679, "Conny", "Jet", "conny@jet.com", "Female", "Part-Time", "basketball6.png"),
 			};
-			foreach(var item in students) {
-				listing.Items.Add(item);
 
-			}
-
-
+			AddAllStudentsToListing();
 			studentStatus.Items.Add("Part-Time");
 			studentStatus.Items.Add("Full-Time");
+			studentStatus.SelectedIndex = 0;
 
 
 
 		}
 
-		private void listing_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
+		private void AddAllStudentsToListing() {
+
+			foreach (var item in students)
+			{
+				listing.Items.Add(item);
+			}
+		}
+
+
+		private void listing_Click(object sender) {
 			ListView listView = sender as ListView;
 
 			if (listView != null)
 			{
-				int indexSelected = listView.SelectedIndex;
+				selectedStudentIdIndex = listView.SelectedIndex;
 				Student selected = listView.SelectedItem as Student;
 				if (selected != null)
 				{
@@ -110,14 +147,12 @@ namespace WpfApp4
 					studentDetailsEM.Text = selected.Email;
 					studentDetailsGE.Text = selected.Gender;
 					studentDetailsST.Text = selected.Status;
-
-
+					studentDetailsPP.Source = mapStringToImageSource(selected.Photo);
 					studentDetails.Visibility = Visibility.Visible;
 
-                }
+				}
 
 			}
-
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
@@ -150,8 +185,37 @@ namespace WpfApp4
 				TextBoxLN.Text = "";
 				TextBoxEM.Text = "";
 
-				students.Add(studentToAdd);
-				listing.Items.Add(studentToAdd);
+				gender_Male.IsChecked = false;
+				gender_Female.IsChecked = false;
+				gender_Undeclared.IsChecked = false;
+
+				studentStatus.SelectedIndex = 0;
+
+				if (!TextBoxID.IsEnabled)
+					students[selectedStudentIdIndex] = studentToAdd;
+				else
+					students.Add(studentToAdd);
+
+
+				//listing.Items.Add(studentToAdd);
+				/* Replace technique
+				listing.Items.RemoveAt(selectedStudentIdIndex);
+				listing.Items.Insert(selectedStudentIdIndex, studentToAdd);
+				*/
+				// clear and re-add technique
+				listing.Items.Clear();
+				AddAllStudentsToListing();
+
+				studentDetailsID.Text = "";
+				studentDetailsFN.Text = "";
+				studentDetailsLN.Text = "";
+				studentDetailsEM.Text = "";
+				studentDetailsGE.Text = "";
+				studentDetailsST.Text = "";
+				studentDetailsPP.Source = defaultProfilePhoto;
+				studentDetails.Visibility = Visibility.Hidden;
+				TextBoxID.IsEnabled = true;
+
 
 				tabs.SelectedIndex = 0;
 			}
@@ -187,11 +251,45 @@ namespace WpfApp4
 				case "Female":gender_Female.IsChecked = true; break;
 				default: gender_Undeclared.IsChecked = true; break;
 			}
+
+			profilePhoto.Source = studentDetailsPP.Source;
 			studentStatus.SelectedIndex = status.Equals("Full-Time") ? 1 : 0;
-
+			Btn_Submit.Content = "Edit";
 			tabs.SelectedIndex = 1;
+			TextBoxID.IsEnabled = false;
 
 
+		}
+
+
+		private void Button_Clear_Click(object sender, RoutedEventArgs e)
+		{
+			Btn_Submit.Content = "Submit";
+			TextBoxID.Text = "";
+			TextBoxFN.Text = "";
+			TextBoxLN.Text = "";
+			TextBoxEM.Text = "";
+			gender_Male.IsChecked = false;
+			gender_Female.IsChecked = false;
+			gender_Undeclared.IsChecked = false;
+			studentStatus.SelectedIndex = 0;
+			profilePhoto.Source = defaultProfilePhoto;
+
+			//selectedStudentIdIndex = -1;
+
+			TextBoxID.IsEnabled = true;
+
+			
+		}
+
+		private void listing_Click_Action(object sender, SelectionChangedEventArgs e)
+		{
+			listing_Click(sender);
+		}
+
+		private void listing_Click_Action(object sender, MouseButtonEventArgs e)
+		{
+			listing_Click(sender);
 		}
 	}
 }

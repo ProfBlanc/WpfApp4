@@ -14,7 +14,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ListView x:Name="listing" Grid.Column="0" SelectionChanged="listing_SelectionChanged" >
+                    <ListView x:Name="listing" Grid.Column="0" SelectionChanged="listing_Click_Action" PreviewMouseLeftButtonUp="listing_Click_Action" >
                         <ListView.View>
                             <GridView x:Name="listingGrid">
                             </GridView>
@@ -36,7 +36,7 @@
                         <TextBlock TextWrapping="Wrap" RenderTransformOrigin="0.483,5.625" Canvas.Left="84" Canvas.Top="310" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Text="Gender"/><LineBreak/><Run/></TextBlock>
                         <TextBlock x:Name="studentDetailsGE" TextWrapping="Wrap" Text="TextBlock" RenderTransformOrigin="0.483,5.625" Canvas.Left="213" Canvas.Top="310" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                         <Button Content="Edit&#xD;&#xA;" Canvas.Left="158" Canvas.Top="360" HorizontalAlignment="Center" VerticalAlignment="Top" Width="48" Height="22" Click="Edit_Student"/>
-                        <Image Height="100" Canvas.Left="120" Canvas.Top="77" Width="100" Source="/profile.png"/>
+                        <Image x:Name="studentDetailsPP" Height="100" Canvas.Left="120" Canvas.Top="77" Width="100" Source="/profile.png"/>
                     </Canvas>
                 </Grid>
             </TabItem>
@@ -56,7 +56,7 @@
                         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="Last Name"/><LineBreak/><Run/></TextBlock>
                         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="85,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.483,5.625"><Run Text="Email"/><LineBreak/><Run/></TextBlock>
                     </Canvas>
-                    <Button Content="Submit" HorizontalAlignment="Left" Margin="33,343,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.Column="4"/>
+                    <Button x:Name="Btn_Submit" Content="Submit" HorizontalAlignment="Left" Margin="33,343,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.Column="4" Background="#FF2B00FF" Foreground="White"/>
                     <TextBox x:Name="TextBoxID" HorizontalAlignment="Left" Margin="75,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
                     <TextBox x:Name="TextBoxFN" HorizontalAlignment="Left" Margin="75,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
                     <TextBox x:Name="TextBoxLN" HorizontalAlignment="Left" Margin="75,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
@@ -72,7 +72,11 @@
                     <Image x:Name="f1" HorizontalAlignment="Left" Height="59" Margin="430,74,0,0" VerticalAlignment="Top" Width="54" Source="/basketball4.png" MouseDown="onImageClick" Grid.Column="4"/>
                     <Image x:Name="f2" HorizontalAlignment="Left" Height="59" Margin="492,74,0,0" VerticalAlignment="Top" Width="54" Source="/basketball5.png"  MouseDown="onImageClick" Grid.Column="4"/>
                     <Image x:Name="f3" HorizontalAlignment="Left" Height="59" Margin="559,75,0,0" VerticalAlignment="Top" Width="54" Source="/basketball6.png" MouseDown="onImageClick" Grid.Column="4"/>
-                    <Button Content="Reset" HorizontalAlignment="Left" Margin="384,192,0,0" VerticalAlignment="Top" Click="Button_Reset_Clicked" Grid.Column="4"/>
+                    <Button Content="Reset" HorizontalAlignment="Left" Margin="384,192,0,0" VerticalAlignment="Top" Click="Button_Reset_Clicked" Grid.Column="4" Background="#FFF66B00"/>
+                    <Image x:Name="f4" HorizontalAlignment="Left" Height="59" Margin="430,133,0,0" VerticalAlignment="Top" Width="54" Source="/basketball1.png" MouseDown="onImageClick" Grid.Column="4"/>
+                    <Image x:Name="f5" HorizontalAlignment="Left" Height="59" Margin="492,133,0,0" VerticalAlignment="Top" Width="54" Source="/basketball2.png" MouseDown="onImageClick" Grid.Column="4"/>
+                    <Image x:Name="f6" HorizontalAlignment="Left" Height="59" Margin="559,134,0,0" VerticalAlignment="Top" Width="54" Source="/basketball3.png" MouseDown="onImageClick" Grid.Column="4"/>
+                    <Button x:Name="Button_Clear" Grid.Column="4" Content="Clear" HorizontalAlignment="Left" Margin="135,343,0,0" VerticalAlignment="Top" Click="Button_Clear_Click" Background="Red" Foreground="White" RenderTransformOrigin="0.246,0.105"/>
 
 
 

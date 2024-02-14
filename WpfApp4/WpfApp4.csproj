@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="basketball1.png" />
+    <None Remove="basketball2.png" />
+    <None Remove="basketball3.png" />
     <None Remove="basketball4.png" />
     <None Remove="basketball5.png" />
     <None Remove="basketball6.png" />
@@ -16,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="basketball1.png" />
+    <Resource Include="basketball2.png" />
+    <Resource Include="basketball3.png" />
     <Resource Include="basketball4.png" />
     <Resource Include="basketball5.png" />
     <Resource Include="basketball6.png" />
